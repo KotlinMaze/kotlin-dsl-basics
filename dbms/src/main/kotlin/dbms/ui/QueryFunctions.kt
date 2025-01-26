@@ -5,14 +5,10 @@ import dbms.query.SelectQueryBuilder
 import dbms.table.TableBuilder
 
 fun create(block: TableBuilder.() -> Unit) {
-    DatabaseManager.createTable {
-        block()
-        println("Table ${table().name} created successfully.")
-        println("Table attributes : ${table().currentAttributes()}")
-        println("Table records : ${table().currentRecords()}")
-    }
+    // TODO 1. DatabaseManager의 메서드를 활용하여 create 메서드 완성
 }
 
 fun select(block: SelectQueryBuilder.() -> Unit): List<Map<String, Any>> {
-    return DatabaseManager.selectRecords(block).also { println(it) }
+    // TODO 2. DatabaseManager의 메서드를 활용하여 select 메서드 완성
+    return emptyList()
 }
