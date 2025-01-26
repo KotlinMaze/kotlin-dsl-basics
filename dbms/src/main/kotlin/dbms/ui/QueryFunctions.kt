@@ -14,5 +14,5 @@ fun create(block: TableBuilder.() -> Unit) {
 }
 
 fun select(block: SelectQueryBuilder.() -> Unit): List<Map<String, Any>> {
-    return DatabaseManager.selectRecords(block).also { println(it) }
+    return DatabaseManager.selectRecords(block).also { println("Selection result : $it") }
 }

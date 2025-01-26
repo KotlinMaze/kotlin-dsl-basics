@@ -3,11 +3,19 @@ package dbms.query
 class SelectQueryBuilder {
     private val query = SelectQuery()
 
-    // TODO 1. columns 함수 정의 - 테이블에서 가져올 속성
+    fun columns(vararg values: String) {
+        query.addColumns(values)
+    }
 
-    // TODO 2. from 함수 정의 - 가져올 테이블 정의
+    fun from(tableName: String) {
+        query.initTargetTable(tableName)
+    }
 
-    // TODO 3. where 함수 정의 - 조건절 정의
+    fun where(block: WhereClauseBuilder.() -> Unit) {
+        val whereClauseBuilder = WhereClauseBuilder().apply(block)
+        val whereClauses = whereClauseBuilder.build()
+        query.addWhereConditions(whereClauses)
+    }
 
     internal fun build(): SelectQuery = query
 }
