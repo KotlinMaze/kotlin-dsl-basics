@@ -112,12 +112,8 @@ fun doubleNumber(n: Int, operation: (Int) -> Int): Int {
 
 fun main() {
     val number = 5
-    // 내부에서 람다 정의
-    // 10
     val result1 = doubleNumber(number, { it * 2 })
-
-    // 외부에서 람다 정의
-    // 10
+    
     val result2 = doubleNumber(number) { it * 2 }
 }
 ```
